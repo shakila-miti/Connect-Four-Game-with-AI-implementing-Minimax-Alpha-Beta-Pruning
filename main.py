@@ -4,21 +4,19 @@ import pygame
 import sys
 import math
 
-TEAL = (0,128,128)
-BLACK = (0,0,0)
-PURPLE = (128,0,128)
-GOLDEN = (254,208,0)
-
 RCOUNT = 6
 CCOUNT = 7
-
 P = 0
 AI = 1
 
 NULL = 0
 P_PIECE = 1
 AI_PIECE = 2
-
+TEAL = (0,128,128)
+bg_img = pygame.image.load('wood3.jpg')
+BLACK = (224,224,224)
+PURPLE = (255,0,0)
+GOLDEN = (0,0,204)
 WL = 4
 
 def init_board():
@@ -174,7 +172,8 @@ def gValidLoc(board):
 def draw_board(board):
 	for c in range(CCOUNT):
 		for r in range(RCOUNT):
-			pygame.draw.rect(screen, TEAL, (c*sqSize, r*sqSize+sqSize, sqSize, sqSize))
+			#pygame.draw.rect(screen, TEAL, (c*sqSize, r*sqSize+sqSize, sqSize, sqSize))
+			screen.blit(bg_img, (c*sqSize, r*sqSize+sqSize))
 			pygame.draw.circle(screen, BLACK, (int(c*sqSize+sqSize/2), int(r*sqSize+sqSize+sqSize/2)), radius)
 	
 	for c in range(CCOUNT):
